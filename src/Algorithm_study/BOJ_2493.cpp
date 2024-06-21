@@ -15,6 +15,9 @@ int main()
     이후 만족하는 탑의 인덱스를 출력하고 7을 삽입함
     5. 4 입력 -> 4 < 스택 top이므로 스택 top의 인덱스를 출력 후 스택에 삽입
     */
+
+    cin.tie(0);
+    ios_base::sync_with_stdio(false);
     int n;
     cin >> n;
    
@@ -42,13 +45,13 @@ int main()
                 s.pop();
                 if (s.empty())
                 {
-                    s.push(make_pair(num, i));
                     answer = 0;
                     break;
                 }
                 answer = s.top().second;
             }
             cout << answer << " ";
+            s.push(make_pair(num, i));
         }
     }
     return 0;

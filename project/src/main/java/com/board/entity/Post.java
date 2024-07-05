@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Post {
     @Id//이 필드가 엔티티의 기본 키임을 나타냄
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//기본 키가 데이터베이스에 의해 자동으로 생성되도록함. 'IDENTITY' 전략은 보통 myslq에서 'AUTO_INCREMENT'를 사용하여 기본 키를 생성함
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//기본 키가 데이터베이스에 의해 자동으로 생성되도록함. 'IDENTITY' 전략은 보통 mysql에서 'AUTO_INCREMENT'를 사용하여 기본 키를 생성함
     private Long id;//id필드는 post 엔티티의 기본 키로 사용됨
     private String title;//title 필드는 게시물의 제목
     private String author;//author 필드는 게시물의 작성자를 나타냄

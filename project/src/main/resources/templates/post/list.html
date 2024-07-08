@@ -8,8 +8,16 @@
         <a th:href="@{/post/new}">새 글 작성</a>
         <!-- form.html로 넘어감      -->
         <ul>
+            <!-- unordered list의 약자로 순서가 없는 리스트를 말함        -->
             <li th:each="post : ${posts}">
+            <!-- th:each는 thymeleaf의 반복 처리 문법으로 '${posts}'는 서버에서 전달된 게시물 목록을 나타내며, 'post'는 각 게시물을 반복할 때 사용할 변수이다.
+                 이 반복문은 'posts' 리스트에 있느 각 'post' 객체에 대해 <li> 요소를 생성한다.-->
+
                 <a th:href="@{/post/{id}(id=${post.id})}" th:text="${post.title}">글 제목</a>
+            <!-- 각 게시물의 제목을 클릭하면 해당 게시물의 상세 페이지로 이동하는 링크이다.
+                  th:href="@{/post/{id}(id=${post.id})}" 는 Thymeleaf의 경로 변수 문법을 사용하여 동적으로 url을 생성한다. '${post.id}'는 각 post 객체의 id 속성 값을 url에 삽입한다.
+                  th:text = "${post.title}"는 링크 텍스트를 각 'post' 객체의 'title' 속성 값으로 설정한다.
+                  글 제목은 'thymeleaf가 값을 바인딩 하지 못했을 때 기본으로 표시되는 텍스트이다.'-->
             </li>
         </ul>
     </body>

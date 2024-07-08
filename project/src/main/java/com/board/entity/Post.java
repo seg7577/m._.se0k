@@ -21,6 +21,7 @@ public class Post {
     private Long id;//id필드는 post 엔티티의 기본 키로 사용됨
     private String title;//title 필드는 게시물의 제목
     private String author;//author 필드는 게시물의 작성자를 나타냄
+    private String content;//content 필드는 게시물의 글 내용을 나타냄
     private LocalDateTime createdDate;//createDate 필드는 게시물이 생성된 날짜와 시간을 나타내며, 기본값은 현재 시간으로 설정됨
     private LocalDateTime modifiedDate;//modifiedDate 필드는 게시물이 수정된 날짜와 시간을 나타냄
 

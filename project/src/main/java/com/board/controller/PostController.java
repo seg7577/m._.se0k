@@ -26,6 +26,12 @@ public class PostController {
         model.addAttribute("posts", posts);
         return "/post/list";
     }
+
+    @GetMapping("/post/account")
+    public String MemberShipAccount(Model model)
+    {
+        return "post/MembershipAccount";
+    }
     /*  게시글 목록 조회
     *   @GetMapping("/") : 루트 경로 ('/')에 대한 GET 요청을 처리함
     *   'List<Post> posts = postService.findAll()' : 모든 게시글을 조회함

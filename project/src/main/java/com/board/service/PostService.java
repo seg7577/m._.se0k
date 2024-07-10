@@ -10,8 +10,11 @@ import java.util.Optional;
 
 @Service//이 클래스가 서비스 계층 컴포넌트임을 나타냄. Spring이 이 클래스를 서비스 빈으로 등록함
 public class PostService {
-    @Autowired//Spring이 'PostRepository'타입의 빈을 주입하도록 지시
-    private PostRepository postRepository;//'PostRepository' 인터페이스의 인스턴스를 저장하는 필드이며, 이 인터페이스는 데이터베이스와 상호작용하는데 사용됨
+    @Autowired
+    //Spring이 'PostRepository'타입의 빈을 주입하도록 지시
+
+    private PostRepository postRepository;
+    //'PostRepository' 인터페이스의 인스턴스를 저장하는 필드이며, 이 인터페이스는 데이터베이스와 상호작용하는데 사용됨
 
     public List<Post> findAll(){
         //모든 게시물을 조회, findAll() 메서드를 통해 데이터베이스에서 모든 게시물을 가져옴

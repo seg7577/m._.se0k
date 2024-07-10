@@ -24,7 +24,6 @@ public class Post {
     private String content;//content 필드는 게시물의 글 내용을 나타냄
     private LocalDateTime createdDate;//createDate 필드는 게시물이 생성된 날짜와 시간을 나타내며, 기본값은 현재 시간으로 설정됨
     private LocalDateTime modifiedDate;//modifiedDate 필드는 게시물이 수정된 날짜와 시간을 나타냄
-
     //콜백 메서드
     @PrePersist//엔티티가 처음으로 저장되기 전에 호출됨 'onCreate'메서드는 'createDate'를 현재 시간으로 설정함
     protected void onCreate(){

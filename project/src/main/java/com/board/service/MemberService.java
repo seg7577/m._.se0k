@@ -17,4 +17,12 @@ public class MemberService {
     {
         return memberRepository.save(member);
     }
+    public Member getEmail(Member member)
+    {
+        return memberRepository.findById(member.getId()).get();
+    }
+    public Member getPassword(Member member)
+    {
+        return memberRepository.(member.getId()).get();
+    }
 }

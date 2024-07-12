@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--뷰포트 메타 태그로 페이지가 반응형 디자인을 가지도록 설정함   -->
         <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
-        <!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+        <!--     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
         <!--    &lt;!&ndash;외부 BootStrap CSS 파일을 포함하여 페이지 스타일을 적용함 &ndash;&gt;-->
 
         <link th:href="@{/css/signin.css}" rel="stylesheet">
@@ -17,7 +17,7 @@
     </head>
 
     <body class="text-center">
-        <form name="registerForm" class="form-signin" th:action="@{/posts}" method="post" th:object="${posts}"
+        <form name="registerForm" class="form-signin" th:action="@{/members}" method="post" th:object="${posts}"
             onsubmit="return checkAll();">
             <!--text-center 클래스를 사용하여 본문을 중앙 정렬함.
             회원가입 폼을 시작하며 폼 이름을 registerForm으로 설정함.
@@ -32,8 +32,8 @@
             <hr>
             <!--로고 이미지에 대한 링크를 설정하고 이미지를 표시함.    -->
 
-            <label th:for="e_mail" class="form=label">이메일(아이디)</label>>
             <div class="mb-3 abc">
+                <label th:for="e_mail" class="form=label">이메일(아이디)</label>
                 <input type="email" class="form-control mx-1 overlap" id="e_mail" name="e_mail" placeholder="이메일을 입력해 주세요">
                 <!--        <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay"-->
                 <!--               onclick="usernameCheck()" value="중복체크"/>-->

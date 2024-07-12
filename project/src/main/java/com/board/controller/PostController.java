@@ -1,6 +1,8 @@
 package com.board.controller;
 
 import com.board.entity.Post;
+import com.board.entity.Member;
+import com.board.service.MemberService;
 import com.board.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private MemberService memberService;
     /*  @Controller : 이 클래스가 Spring MVC의 컨트롤러임을 나타냄
     *   @Autowired : Spring이 'postService' 객체를 자동으로 주입하도록 함
     *   'postService' : 게시글 관련 비즈니스 로직을 처리하는 서비스
@@ -90,6 +94,16 @@ public class PostController {
      *  postService.Save(post); : 새로운 게시글을 저장함.
      *  return "redirect:/"; : root 경로로 리다이렉션함(redirect : 사용자 처음 요청한 url이 아닌 다른 url을 보내는 것을 뜻함).
      */
+    @PostMapping("/members")
+    public String create(@ModelAttribute Member member) {
+        memberService.Save(member);
+        return "post/usercreate";
+    }
+    @PostMapping("/members/_check")
+    public String check(@ModelAttribute Member member) {
+        memberService.getEmail(member);
+        memberService.getPassword(member);
+    }
 
     @GetMapping("/posts")
     //글 작성 이후 "이전 페이지로 이동"의 하이퍼링크를 누를 경우 시작 페이지로 이동하게 해주는 메서드이다.

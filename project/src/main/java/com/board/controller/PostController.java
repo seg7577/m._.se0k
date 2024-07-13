@@ -1,13 +1,15 @@
 package com.board.controller;
 
 import com.board.entity.Post;
-import com.board.entity.Member;
 import com.board.service.MemberService;
 import com.board.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -31,11 +33,6 @@ public class PostController {
         return "/post/list";
     }
 
-    @GetMapping("/post/account")
-    public String MemberShipAccount(Model model)
-    {
-        return "post/MembershipAccount";
-    }
     /*  게시글 목록 조회
     *   @GetMapping("/") : 루트 경로 ('/')에 대한 GET 요청을 처리함
     *   'List<Post> posts = postService.findAll()' : 모든 게시글을 조회함
@@ -93,17 +90,7 @@ public class PostController {
      *  @ModelAttribute Post post : 폼 데이터로부터 'Post' 객체를 생성함.
      *  postService.Save(post); : 새로운 게시글을 저장함.
      *  return "redirect:/"; : root 경로로 리다이렉션함(redirect : 사용자 처음 요청한 url이 아닌 다른 url을 보내는 것을 뜻함).
-     */
-    @PostMapping("/members")
-    public String create(@ModelAttribute Member member) {
-        memberService.Save(member);
-        return "post/usercreate";
-    }
-    @PostMapping("/members/_check")
-    public String check(@ModelAttribute Member member) {
-        memberService.getEmail(member);
-        memberService.getPassword(member);
-    }
+//     */
 
     @GetMapping("/posts")
     //글 작성 이후 "이전 페이지로 이동"의 하이퍼링크를 누를 경우 시작 페이지로 이동하게 해주는 메서드이다.

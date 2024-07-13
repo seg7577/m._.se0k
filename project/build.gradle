@@ -43,13 +43,16 @@ dependencies {
 
     annotationProcessor 'org.projectlombok:lombok'
 
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     //Spring Boot 테스트를 위한 의존성을 포함한다.
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     //JUnit 플랫폼을 사용하여 테스트를 실행할 수 있도록 한다.
 
     testImplementation 'org.springframework.security:spring-security-test'
+
+    implementation 'org.springframework.security:spring-security-core:5.7.3' // 적절한 버전을 사용하세요
+    implementation 'org.springframework.security:spring-security-crypto:5.7.3' // 적절한 버전을 사용하세요
+
 }
 
 tasks.named('test') {

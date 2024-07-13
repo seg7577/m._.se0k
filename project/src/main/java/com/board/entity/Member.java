@@ -1,12 +1,9 @@
 package com.board.entity;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.*;
-import org.springframework.ui.Model;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -40,6 +37,10 @@ public class Member {
     @Column(name ="gen")
     private int gen; //0이면 여자 1이면 남자
 
+    @Column(name="password_check")
+    @jakarta.persistence.Transient
+    private String password_check;
+
     public Member(Long id, String e_mail, String password, String nickname, String year, String month, String day, int gen) {
         this.id = id;
         this.e_mail = e_mail;
@@ -51,10 +52,13 @@ public class Member {
         this.gen = gen;
     }
 
-    protected String getE_mail() {
+    public String getE_mail() {
         return e_mail;
     }
-    protected String getPassword() {
+    public String getPassword() {
         return password;
+    }
+    public String getPasswordCheck(){
+        return password_check;
     }
 }

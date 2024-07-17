@@ -9,20 +9,20 @@
         <!--Thymeleaf를 사용하여 'sinnin.css'와 'birth.css' 스타일 시트를 포함함    -->
     </head>
     <body class="text-center">
-        <form name="loginForm" th:action="@{/}" method="post" onsubmit="return checkAll();">
+        <form name="loginForm" th:action="@{/members/login/check}" method="get" onsubmit="return checkAll();">
             <h1 class="h3 md-3 fw-normal">로그인</h1>
 
 
             <div class="mb-3 abc">
                 <label th:for="e_mail">이메일(아이디)</label>
-                <input type="eßmail" class="form-control" id="e_mail" name="e_mail" placeholder="아이디를 입력하세요." required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="아이디를 입력하세요." required>
             </div>
             <div class="mb-3">
                 <lable th:for="password">비밀번호</lable>
                 <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하시오." required>
             </div>
 
-            <button type="button" class="btn btn-sucess me-1" onclick="location.href='/member/_check'">로그인</button>
+            <button type="submit" class="btn btn-sucess me-1">로그인</button>
         </form>
     </body>
 </html>

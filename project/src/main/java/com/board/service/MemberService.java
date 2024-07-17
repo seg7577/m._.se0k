@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MemberService {
     @Autowired
@@ -30,16 +32,21 @@ public class MemberService {
 
         return memberRepository.save(member);
     }
-    public Member getEmail(Member member)
+    public Optional<Member> getMemberByemail(String email)
     {
-        return memberRepository.findById(member.getId()).get();
+        return memberRepository.findByemail(email);
+    }
+    public Optional<Member> getmemberBypassword(String password)
+    {
+        return memberRepository.findBypassword(password);
     }
 
     public boolean login(Member member) {
-        if (member.getE_mail().equals(memberRepository.findById(member.getId())) && member.getPassword().equals(passwordEncoder.encode(member.getPassword())))
+        if (member.getEmail().equals(memberRepository.findById(member.getId())) && member.getPassword().equals(passwordEncoder.encode(member.getPassword())))
             return true;
         return false;
     }
+
 //    public Member getPassword(Member member)
 //    {
 //        return memberRepository.find;

@@ -83,7 +83,7 @@ public class PostController {
     @PostMapping("/posts")
     public String create(@ModelAttribute Post post) {
         postService.Save(post);
-        return "post/usercreate";
+        return "post/sucess";
         //return "redirect:/";
     }
     /*  @PostMapping("/post/new") : 새 게시글 작성을 위한 post 요청을 처리함.

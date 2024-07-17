@@ -8,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import java.util.Optional;
+
+
 
 @Controller
 public class MemberController {
@@ -27,8 +31,10 @@ public class MemberController {
     @PostMapping("/members")
     public String create(@ModelAttribute Member member) {
         memberService.Save(member);
-        return "post/usercreate";
+        return "post/sucess";
     }
+
+
 //    @PostMapping("/members/login")
 //    //MemberLogin.html에서 로그인 버튼을 누를 경우 post가 올 것.
 //    public String check(@ModelAttribute Member member) {
@@ -41,4 +47,26 @@ public class MemberController {
     public String login(@ModelAttribute Member member) {
         return "post/MemberLogin";
     }
+
+    @GetMapping("/members/login/check")
+    public String login(@RequestParam String email, @RequestParam String password){
+        Optional<Member> member_email = memberService.getMemberByemail(email);
+        Optional<Member> member_password = memberService.getmemberBypassword(password);
+        if (member_email.isPresent() && member_password.isPresent())
+            return "post/sucess";
+        else
+            return "post/fail";
+    }
+
+//    @PostMapping("/members/login/check")
+//    public String login_p(@RequestParam String email, @RequestParam String password){
+//        Optional<Member> member_email = memberService.getMemberByemail(email);
+//        Optional<Member> member_password = memberService.getmemberBypassword(password);
+//        if (member_email.isPresent() && member_password.isPresent())
+//            return "post/success";
+//        else
+//            return "post/fail";
+//    }
+
+
 }

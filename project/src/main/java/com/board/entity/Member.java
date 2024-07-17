@@ -16,8 +16,8 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//기본 키가 데이터베이스에 의해 자동으로 생성되도록함. 'IDENTITY' 전략은 보통 mysql에서 'AUTO_INCREMENT'를 사용하여 기본 키를 생성함
     private Long id;
 
-    @Column(name ="e_mail", unique = true)
-    private String e_mail;
+    @Column(name ="email", unique = true)
+    private String email;
 
     @Column(name ="password", unique = true)
     private String password;
@@ -41,9 +41,9 @@ public class Member {
     @jakarta.persistence.Transient
     private String password_check;
 
-    public Member(Long id, String e_mail, String password, String nickname, String year, String month, String day, int gen) {
+    public Member(Long id, String email, String password, String nickname, String year, String month, String day, int gen) {
         this.id = id;
-        this.e_mail = e_mail;
+        this.email = email;
         this.password = password;
         this.nickname = nickname;
         this.year = year;
@@ -52,8 +52,8 @@ public class Member {
         this.gen = gen;
     }
 
-    public String getE_mail() {
-        return e_mail;
+    public String getEmail() {
+        return email;
     }
     public String getPassword() {
         return password;

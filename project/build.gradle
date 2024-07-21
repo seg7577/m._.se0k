@@ -53,6 +53,10 @@ dependencies {
     implementation 'org.springframework.security:spring-security-core:5.7.3' // 적절한 버전을 사용하세요
     implementation 'org.springframework.security:spring-security-crypto:5.7.3' // 적절한 버전을 사용하세요
 
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
 }
 
 tasks.named('test') {

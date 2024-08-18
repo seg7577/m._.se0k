@@ -15,12 +15,12 @@ typedef struct tageHeapNode{
 typedef struct tagHeap{
     HeapNode* Nodes;
     int Capacity;       //용량
-    int UsedSize;       
+    int UsedSize;       //힙의 크기
 } Heap;
 
-Heap* Heap_Create(int IntitialSize);
+Heap* Heap_Create(int Initialize);
 void Heap_Destroy(Heap* h);
-void Heap_Insert(Heap* H, HeapNode* Root);
+void Heap_Insert(Heap* H, ElementType NewData);
 void Heap_DeleteMin(Heap* H, HeapNode* Root);
 int Heap_GetParent(int Index);
 int Heap_GetLeftChild(int Index);
@@ -28,3 +28,4 @@ void Heap_SwapNodes(Heap* H, int Index1, int Index2);
 void Heap_PrintNodes(Heap* H);
 
 #endif
+

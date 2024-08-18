@@ -1,113 +1,116 @@
 #include "HEAP.h"
 
 using namespace std;
+Heap* Heap_Create(int Initialize);
+void Heap_Destroy(Heap* h);
+void Heap_Insert(Heap* H, ElementType NewData);
+void Heap_DeleteMin(Heap* H, HeapNode* Root);
+int Heap_GetParent(int Index);
+int Heap_GetLeftChild(int Index);
+void Heap_SwapNodes(Heap* H, int Index1, int Index2);
+void Heap_PrintNodes(Heap* H);
 
-Heap* Heap_Create(int IntitialSize)                                             //새로운 힙 노드를 생성하는 메서드
+Heap* Heap_Create(int Initialize)
+//힙을 초기에 생성하는 메서드로 객체 내부의 멤버 변수에 대한 초기화 작업이 진행 된다.
 {
-    Heap* NewHeap = (Heap*)malloc(sizeof(Heap));                                //Heap의 크기만큼 공간을 할당하여 Heap*의 형태로 강제 형변환을 진행하여 할당한다.
-    NewHeap->Capacity = IntitialSize;                                           //새로운 heap 노드의 크기에 대해 저장한다.
-    NewHeap->UsedSize = 0;                                                      
-    NewHeap->Nodes = (HeapNode*)malloc(sizeof(HeapNode) * NewHeap->Capacity);   //NewHeap의 Nodes는 Capacity만큼의 공간을 동적 생성한다.
+    Heap* NewHeap = (Heap*)malloc(sizeof(Heap));                //Heap크기만큼의 메모리를 동적 할당하고 이를 강제 형변환을 통해 할당 받은 주소값의 형태로 넘긴다.
+    NewHeap->Capacity = Initialize;                             //초기화할 즉, 힙의 총 크기에 대해 정의하는 것이다.
+    NewHeap->UsedSize = 0;                                      //총 HeapNode의 개수를 의미한다.
+    cout << "size : " << sizeof(Heap) << '\n';
 
-    cout << "size : " << sizeof(HeapNode) << '\n';
-    return NewHeap;
+    return NewHeap;                                             //생성된 힙을 반환한다. (주소값)
 }
 
-void Heap_Destroy(Heap* H)                                                      //해제는 생성의 역순으로 진행
+void Heap_Destroy(Heap* h)
+//삭제할 힙을 인자로 받아옴. 메모리 해제는 생성의 역순으로 진행 된다.
 {
-    free(H->Nodes);
-    free(H);
+    free(h->Nodes);
+    free(h);
 }
 
 void Heap_Insert(Heap* H, ElementType NewData)
-//이 함수는 힙에 새로운 데이터를 삽입하기 전에, 현재 힙의 크기와 용량을 확인하여 필요한 경우 힙의 용량을 두 배로 늘린다., 용량을 늘린 후, 실제 삽입 작업을 수행할 준비를 한다. 전체 삽입 과정에서 힙의 크기와 부모 노드의 위치를 추적한다.
-{       
-    int CurrentPosition = H->UsedSize;                                          //현재 삽입하려는 위치를 저장한단. 초기 값으로 힙에 이미 사용된 크기 (H->UsedSize)를 할당한다.
-    int ParentPosition = Heap_GetParent(CurrentPosition);                       //현재 삽입하려는 위치의 부모 노드 위치를 저장한다. 
+//삽입할 노드, 해당 힙의 루트 노드를 인자로 받아온다.
+{
+    int CurrentPosition = H->UsedSize;                          //Current -> 현재 가장 말단에 위치한 노드의 위치이기에 H->UsedSize의 값을 받아온다.
+    int ParentPosition = Heap_GetParent(CurrentPosition);       //Current의 위치를 기반으로 Current의 부모노드의 위치를 저장한다.
 
-    if (H->UsedSize == H->Capacity)                                             //힙의 사용된 크기가 힙의 전체 용량과 동일한지 확인한다. 만약 동일하다면 힙이 꽉 찼ㄷ는 의미                       
-    {                                                                           //힙이 꽉 찼을 경우, 힙의 용량을 두 배로 늘린다. realloc 함수를 사용하여 힙의 노드 배열의 크기를 새 용량에 맞게 재할당한다. 이 과정에서 기존의 데이터는 그대로 유지되지만, 더 많은 노드를 저장할 수 있도록 배열의 크기가 증가함
-        H->Capacity *= 2;
-        H->Nodes = (HeapNode*)realloc(H->Nodes, sizeof(HeapNode) * H->Capacity);
-
-    }
-
-    H->Nodes[CurrentPosition].Data = NewData;                                   //새 데이터를 현재 위치(CurrentPosition)에 삽입한다.
-
-    while (CurrentPosition > 0 && H->Nodes[CurrentPosition].Data < H->Nodes[ParentPosition].Data)
-    //현재 위치가 루트가 아니며(범위에 대한 조건), 현재 노드의 데이터가 부모 노드의 데이터보다 작은 동안 반복 -> (최소힙 조건), 아래에서 위로 올라가는 형식
+    if (H->UsedSize == H->Capacity)                             //생성 당시 할당한 메모리의 용량이 남았는 지에 대한 검사를 진행 후 만약 메모리가 남지 않았다면 삽입이 정상적으로 이루어지지 않게 되기에 이를 방지하는 차원에서 검사 진행 후 재할당 하든지 한다.
     {
-        Heap_SwapNodes(H, CurrentPosition, ParentPosition);                     //현재 위치한 노드와 부모 노드의 위치를 바꿈
-        
-        CurrentPosition = ParentPosition;                                       //현재의 위치를 부모의 위치로 초기화
-        ParentPosition = Heap_GetParent(CurrentPosition);                       //부모 위치를 재계산하는 것
+        H->Capacity *= 2;                                       //임의로 메모리의 용량을 2배로 증가시킨 것. 증가 시키는 것은 sizeof(HeapNode) * n만큼 본인이 원하는 대로 지정하면 된다. 여기서는 편의상 2배로 통일 시켰다.
+        H->Nodes = (HeapNode*)realloc(H->Nodes, sizeof(HeapNode) * H->Capacity);
     }
 
-    H->UsedSize++;                                                              //힙에 사용된 크기를 1 증가 == 새로운 노드가 삽입 되었음을 반영함
-}
+    H->Nodes[CurrentPosition].Data = NewData;
 
-void Heap_SwapNodes(Heap* H, int Index1, int Index2)
+    while(CurrentPosition > 0 && H->Nodes[CurrentPosition].Data < H->Nodes[ParentPosition].Data)
+    //모든 노드에 대해 탐색을 마친 경우이거나, 자신 보다 부모 노드의 Data값이 더 작은 경우 반복을 멈춘다.
+    {
+        Heap_SwapNodes(H, CurrentPosition, ParentPosition);     //Current가 Parent의 Data 값 보다 작기에 최소힙의 조건에 위배된다. 그러기에 두 Heap의 위치를 바꾸어 준다.
+
+        CurrentPosition = ParentPosition;
+        ParentPosition = Heap_GetParent(CurrentPosition);
+        //두 위치를 저장하는 변수를 업데이트 해줌.
+    }
+
+    H->UsedSize++;                                              //총 힙의 개수를 1만큼 증가 시킨다.
+}
+void Heap_SwapNodes(Heap* H, int index1, int index2)
 {
-    int CopySize = sizeof(HeapNode);
-    HeapNode* Temp = (HeapNode*)malloc(CopySize);
+    int copysize = sizeof(HeapNode);
+    HeapNode* temp = (HeapNode*)malloc(copysize);
 
-    memcpy(Temp, &H->Nodes[Index1], CopySize);
-    memcpy(&H->Nodes[Index1], &H->Nodes[Index2], CopySize);
-    memcpy(&H->Nodes[Index2], Temp, CopySize);
-    //복사 받을 메모리를 가리키는 포인터, 복사할 메모리를 가리키고 있는 포인터, 복사할 데이터의 길이
+    memcpy(temp, &H->Nodes[index1], copysize);
+    memcpy(&H->Nodes[index1], &H->Nodes[index2], copysize);
+    memcpy(&H->Nodes[index2], temp, copysize);
 
-    free(Temp);
+    free(temp);
 }
-
 void Heap_DeleteMin(Heap* H, HeapNode* Root)
+//가장 말단에 위치한 노드와 루트 노드의 자리를 바꾸ㅣ어 삭제한 이후 말단의 노드의 위치를 위에서부터 아래로 업데이트 하는 과정을 거친다.
 {
-    int ParentPosition = 0;
-    int LeftPosition = 0;
-    int RightPosition = 0;
+    int ParentPosition, CurrentPosition, Left_Position, Right_Position;
 
-    memcpy(Root, &H->Nodes[0], sizeof(HeapNode));                               //삭제를 위해 말단에 위치한 인자로 받은 노드의 포인터에 현재 루트 노드의 주소를 저장한다.
-    memset(&H->Nodes[0], 0, sizeof(HeapNode));                                  //루트 노드의 데이터를 0으로 초기화
-    //세팅하고자하는 메모리의 시작 주소, 메모리에 세팅하고자 하는 데이터 값, 사이즈 -> 실패한다면 NULL을 반환함
+    memcpy(Root, &H->Nodes[0], sizeof(HeapNode));               //Root(새로운 루트, 현재는 말단의 주소가 담겨 있음)에 현재 루트 노드의 주소를 저장한다.
+    memset(&H->Nodes[0], 0, sizeof(HeapNode));                  //기존의 루트 노드의 주소를 0 or NULL로 초기화해준다.
 
-    H->UsedSize--;                                                              //총 힙의 개수 반영 == 노드의 개수를 감소시킴
-    Heap_SwapNodes(H, 0, H->UsedSize);                                          //마지막 노드와 루트 노드를 교환함. 이로 인해 마지막 노드가 루트 노드로 이동한다.
+    H->UsedSize--;
+    Heap_SwapNodes(H, 0, H->UsedSize);
 
-    LeftPosition = Heap_GetLeftChild(0);
-    RightPosition = LeftPosition + 1;
-    //루트 노드의 각각 자식 노드에 대한 위치 계산
+    Left_Position = Heap_GetLeftChild(0);
+    Right_Position = Left_Position + 1;
 
     while(1)
-    //힙 재정렬을 위한 반복
     {
         int SelectedChild = 0;
-        if (LeftPosition >= H-> UsedSize)                                       //이 힙의 사용된 크기보다 크거나 같으면 반복을 종료한다.
-            break;
-        if (RightPosition >= H->UsedSize)                                       //이 힙의 사용된 크기보다 크거나 같으면 왼쪽 자식을 선택한다.
-            SelectedChild = LeftPosition;
-        else                                                                    //그렇지 않다면 자식 노드 중 데이터를 비교하여 더 작은 Data 값을 가진 자식 노드를 선택한다.
+        if (Left_Position >= H->UsedSize)  break;               
+        if (Right_Position >= H->UsedSize) SelectedChild = Left_Position;
+        //위의 두 조건문은 저장된 각각의 자식 노드의 위치가 범위에 벗어나는 지에 대한 확인이다.
+
+        else
+        //각가의 자식 노드의 위치가 범위에 벗어나지 않기에 두 자식 노드 중 작은 값을 찾아 SelectedChild에 저장한다.
         {
-            if (H->Nodes[LeftPosition].Data > H->Nodes[RightPosition].Data)     
-                SelectedChild = RightPosition;
-            else
-                SelectedChild = LeftPosition;
+            if (H->Nodes[Left_Position].Data > H->Nodes[Right_Position].Data)     SelectedChild = Right_Position;
+            else                                                                  SelectedChild = Left_Position;
         }
 
-        if (H->Nodes[SelectedChild].Data < H->Nodes[ParentPosition].Data)       //선택된 노드(자식 노드 중 더 작은 Data값을 가진 노드)가 부모 노드의 데이터보다 작은 두 노드를 교환한다.
+        if(H->Nodes[SelectedChild].Data < H->Nodes[ParentPosition].Data)
+        //두 노드가 최소힙의 조건에 위배되는 경우 두 노드의 위치를 바꿔준다.
         {
-            Heap_SwapNodes(H, ParentPosition, SelectedChild);
-            ParentPosition = SelectedChild;                                     //부모 위치를 선택된 자식의 위치로 업데이트 함.
+            Heap_SwapNodes(H, SelectedChild, ParentPosition);
+            ParentPosition = SelectedChild;
         }
-        else                                                                
+        else
+        //두 노드가 최소힙의 조건에 위배되지 않는다면 트리의 균형이 맞춰진 것이기에 반복을 종료한다.
             break;
 
-        LeftPosition=Heap_GetLeftChild(ParentPosition);                         
-        RightPosition = LeftPosition + 1;                                       //왼쪽 자식 위치와 오른쪽 자식 위치를 다시 계산함.
+        Left_Position = Heap_GetLeftChild(SelectedChild);
+        Right_Position = Left_Position + 1;
     }
 
-    if (H->UsedSize < (H->Capacity / 2))                                        //힙의 사용된 크기가 전체 용량의 절반 보다 작아지면, 힙의 용량을 절반으로 줄인다.
+    if (H->UsedSize < (H->Capacity / 2))                        //힙의 사용된 크기가 전체 용량의 절반으로 줄어든다면, 힙의 용량을 절반으로 줄인다.
     {
-        H->Capacity /= 2;
-        H->Nodes = (HeapNode*) realloc(H->Nodes, sizeof(HeapNode) * H->Capacity);
+        H->Capacity /= 2;                       
+        H->Nodes = (HeapNode*)realloc(H->Nodes, sizeof(HeapNode) * H->Capacity);
     }
 }
 

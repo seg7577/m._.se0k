@@ -35,13 +35,13 @@ public class Member {
     private String day;
 
     @Column(name ="gen")
-    private int gen; //0이면 여자 1이면 남자
+    private String gen; //0이면 여자 1이면 남자
 
     @Column(name="password_check")
     @jakarta.persistence.Transient
     private String password_check;
 
-    public Member(Long id, String email, String password, String nickname, String year, String month, String day, int gen) {
+    public Member(Long id, String email, String password, String nickname, String year, String month, String day, String gen) {
         this.id = id;
         this.email = email;
         this.password = password;

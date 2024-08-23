@@ -1,13 +1,13 @@
 //
-//  Swift__grammarTests.swift
-//  Swift_ grammarTests
+//  Swift_grammarTests.swift
+//  Swift_grammarTests
 //
 //  Created by m._.se0k on 8/23/24.
 //
 
 import XCTest
 
-final class Swift__grammarTests: XCTestCase {
+final class Swift_grammarTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

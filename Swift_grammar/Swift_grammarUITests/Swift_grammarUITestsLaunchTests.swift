@@ -1,13 +1,13 @@
 //
-//  Swift__grammarUITestsLaunchTests.swift
-//  Swift_ grammarUITests
+//  Swift_grammarUITestsLaunchTests.swift
+//  Swift_grammarUITests
 //
 //  Created by m._.se0k on 8/23/24.
 //
 
 import XCTest
 
-final class Swift__grammarUITestsLaunchTests: XCTestCase {
+final class Swift_grammarUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

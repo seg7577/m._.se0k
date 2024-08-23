@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Swift_ grammar
+//  Swift_grammar
 //
 //  Created by m._.se0k on 8/23/24.
 //

@@ -9,11 +9,11 @@
 //
 //struct MyEnum2: View {
 //    @State var menu: Menu = .pork
-//    
+//
 //    enum Menu {
 //        case beaf, pork, chicken, lamb, apple
 //    }
-//    
+//
 //    var body: some View {
 //        switch menu{
 //        case .beaf:

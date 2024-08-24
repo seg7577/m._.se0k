@@ -23,7 +23,7 @@ struct practice01: View {
             if menu == "사과" || menu == "스시"{
                 Text("너무 맛있는 \(menu!)")
             } else{
-                Text(menu!)
+                Text("왕머리")
             }
             Button{
                 menu = menus.randomElement()?.rawValue

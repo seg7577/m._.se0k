@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E35668512C7A247800ED8EF5 /* MyClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35668502C7A247800ED8EF5 /* MyClosure.swift */; };
 		E38D4E4C2C78DB1D00EB4847 /* Swift_grammarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D4E4B2C78DB1D00EB4847 /* Swift_grammarApp.swift */; };
 		E38D4E4E2C78DB1D00EB4847 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D4E4D2C78DB1D00EB4847 /* ContentView.swift */; };
 		E38D4E502C78DB1D00EB4847 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38D4E4F2C78DB1D00EB4847 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E35668502C7A247800ED8EF5 /* MyClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClosure.swift; sourceTree = "<group>"; };
 		E38D4E482C78DB1D00EB4847 /* Swift_grammar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swift_grammar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38D4E4B2C78DB1D00EB4847 /* Swift_grammarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_grammarApp.swift; sourceTree = "<group>"; };
 		E38D4E4D2C78DB1D00EB4847 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				E38D4E862C78DC6700EB4847 /* MyEnum2.swift */,
 				E38D4E882C78DCB900EB4847 /* practice01.swift */,
 				E38D4E8A2C78DCE500EB4847 /* MyOptional.swift */,
+				E35668502C7A247800ED8EF5 /* MyClosure.swift */,
 				E38D4E4F2C78DB1D00EB4847 /* Assets.xcassets */,
 				E38D4E512C78DB1D00EB4847 /* Swift_grammar.entitlements */,
 				E38D4E522C78DB1D00EB4847 /* Preview Content */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E38D4E832C78DC3B00EB4847 /* MyFnunction.swift in Sources */,
+				E35668512C7A247800ED8EF5 /* MyClosure.swift in Sources */,
 				E38D4E7D2C78DBBA00EB4847 /* Variable4.swift in Sources */,
 				E38D4E772C78DB4900EB4847 /* Variabl.swift in Sources */,
 				E38D4E8B2C78DCE500EB4847 /* MyOptional.swift in Sources */,

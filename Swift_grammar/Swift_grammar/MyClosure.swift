@@ -36,6 +36,10 @@ struct MyClosure: View {
     }
     
     var body: some View {
+        
+        //Button(action: () -> Void, label: () -> _) : action 함수가 파라미터로 넘기는 것은 없으며 반환형은 void이다.
+
+        
         VStack{
 //            Button{
 //                sayHi()
@@ -49,25 +53,18 @@ struct MyClosure: View {
 //                Text("Function Button2")
 //            }
         }
-        Button {
-            print("test")
-        } label: {
-            Text("Button")
-        }
-        Button {
-            sayHi2 {
-                <#code#>
-            } lable:{
-                Text("Button")
-            }
-        }
         
-//        Button(action: () -> Void, label: () -> _)
-        
-        Button(action: {print("Hi closure")} ){
+//        Button(){
+//            myFirstClosure()
+//        } label: {
+//            Text("HitMe")
+//        }
+        Button (action: myFirstClosure){
+            Text("HitMe")
+        }
+        Button(action: {print("Hi closure2")} ){
             Text("Closure Button")
         }
-        Text("Test")
     }
 }
 

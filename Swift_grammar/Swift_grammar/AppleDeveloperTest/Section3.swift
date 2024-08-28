@@ -7,12 +7,30 @@
 
 import SwiftUI
 
+
+
 struct Section3: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        VStack{
+            Image(systemName: "globe").imageScale(.large).foregroundColor(.green)
+                .background(Color.black, in: Rectangle())
+            Text("Hello, world!")
+                .padding()
+                .background(Color.red, in: Ellipse())
+
+            Text("Knock, knock!")
+                .padding()
+                .background(Color.yellow, in: RoundedRectangle(cornerRadius:20))
+            Text(" Who's there? ")
+                .padding()
+                .background(Color.blue, in: Circle())
+        
+        }
+        .padding()
     }
 }
-
+    
 #Preview {
     Section3()
 }

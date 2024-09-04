@@ -26,6 +26,15 @@
 		E38D4E872C78DC6700EB4847 /* MyEnum2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D4E862C78DC6700EB4847 /* MyEnum2.swift */; };
 		E38D4E892C78DCB900EB4847 /* practice01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D4E882C78DCB900EB4847 /* practice01.swift */; };
 		E38D4E8B2C78DCE500EB4847 /* MyOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D4E8A2C78DCE500EB4847 /* MyOptional.swift */; };
+		E3B4AA542C8606DA004DBA7A /* MyOptionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA532C8606D9004DBA7A /* MyOptionalBinding.swift */; };
+		E3B4AA562C860923004DBA7A /* MyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA552C860923004DBA7A /* MyClass.swift */; };
+		E3B4AA582C860D6E004DBA7A /* MyOptionalChaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA572C860D6E004DBA7A /* MyOptionalChaining.swift */; };
+		E3B4AA5A2C860F15004DBA7A /* MyProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA592C860F15004DBA7A /* MyProperty.swift */; };
+		E3B4AA5C2C861280004DBA7A /* MyMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA5B2C861280004DBA7A /* MyMethod.swift */; };
+		E3B4AA5E2C87FB47004DBA7A /* MyEnumAfter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA5D2C87FB47004DBA7A /* MyEnumAfter.swift */; };
+		E3B4AA602C889E26004DBA7A /* checkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AA5F2C889E26004DBA7A /* checkPoint.swift */; };
+		E3D3FCDC2C7DC05F001FF5F5 /* MtStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D3FCDB2C7DC05F001FF5F5 /* MtStruct.swift */; };
+		E3D3FCDF2C7E1267001FF5F5 /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D3FCDE2C7E1267001FF5F5 /* Section3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +78,15 @@
 		E38D4E862C78DC6700EB4847 /* MyEnum2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEnum2.swift; sourceTree = "<group>"; };
 		E38D4E882C78DCB900EB4847 /* practice01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice01.swift; sourceTree = "<group>"; };
 		E38D4E8A2C78DCE500EB4847 /* MyOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOptional.swift; sourceTree = "<group>"; };
+		E3B4AA532C8606D9004DBA7A /* MyOptionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOptionalBinding.swift; sourceTree = "<group>"; };
+		E3B4AA552C860923004DBA7A /* MyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClass.swift; sourceTree = "<group>"; };
+		E3B4AA572C860D6E004DBA7A /* MyOptionalChaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOptionalChaining.swift; sourceTree = "<group>"; };
+		E3B4AA592C860F15004DBA7A /* MyProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProperty.swift; sourceTree = "<group>"; };
+		E3B4AA5B2C861280004DBA7A /* MyMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMethod.swift; sourceTree = "<group>"; };
+		E3B4AA5D2C87FB47004DBA7A /* MyEnumAfter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEnumAfter.swift; sourceTree = "<group>"; };
+		E3B4AA5F2C889E26004DBA7A /* checkPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkPoint.swift; sourceTree = "<group>"; };
+		E3D3FCDB2C7DC05F001FF5F5 /* MtStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtStruct.swift; sourceTree = "<group>"; };
+		E3D3FCDE2C7E1267001FF5F5 /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +137,7 @@
 		E38D4E4A2C78DB1D00EB4847 /* Swift_grammar */ = {
 			isa = PBXGroup;
 			children = (
+				E3D3FCDD2C7E1249001FF5F5 /* AppleDeveloperTest */,
 				E38D4E4B2C78DB1D00EB4847 /* Swift_grammarApp.swift */,
 				E38D4E4D2C78DB1D00EB4847 /* ContentView.swift */,
 				E38D4E762C78DB4900EB4847 /* Variabl.swift */,
@@ -133,6 +152,14 @@
 				E38D4E882C78DCB900EB4847 /* practice01.swift */,
 				E38D4E8A2C78DCE500EB4847 /* MyOptional.swift */,
 				E35668502C7A247800ED8EF5 /* MyClosure.swift */,
+				E3D3FCDB2C7DC05F001FF5F5 /* MtStruct.swift */,
+				E3B4AA532C8606D9004DBA7A /* MyOptionalBinding.swift */,
+				E3B4AA552C860923004DBA7A /* MyClass.swift */,
+				E3B4AA572C860D6E004DBA7A /* MyOptionalChaining.swift */,
+				E3B4AA592C860F15004DBA7A /* MyProperty.swift */,
+				E3B4AA5B2C861280004DBA7A /* MyMethod.swift */,
+				E3B4AA5D2C87FB47004DBA7A /* MyEnumAfter.swift */,
+				E3B4AA5F2C889E26004DBA7A /* checkPoint.swift */,
 				E38D4E4F2C78DB1D00EB4847 /* Assets.xcassets */,
 				E38D4E512C78DB1D00EB4847 /* Swift_grammar.entitlements */,
 				E38D4E522C78DB1D00EB4847 /* Preview Content */,
@@ -163,6 +190,14 @@
 				E38D4E692C78DB1E00EB4847 /* Swift_grammarUITestsLaunchTests.swift */,
 			);
 			path = Swift_grammarUITests;
+			sourceTree = "<group>";
+		};
+		E3D3FCDD2C7E1249001FF5F5 /* AppleDeveloperTest */ = {
+			isa = PBXGroup;
+			children = (
+				E3D3FCDE2C7E1267001FF5F5 /* Section3.swift */,
+			);
+			path = AppleDeveloperTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +330,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B4AA602C889E26004DBA7A /* checkPoint.swift in Sources */,
 				E38D4E832C78DC3B00EB4847 /* MyFnunction.swift in Sources */,
+				E3B4AA5E2C87FB47004DBA7A /* MyEnumAfter.swift in Sources */,
+				E3D3FCDF2C7E1267001FF5F5 /* Section3.swift in Sources */,
+				E3B4AA562C860923004DBA7A /* MyClass.swift in Sources */,
+				E3D3FCDC2C7DC05F001FF5F5 /* MtStruct.swift in Sources */,
 				E35668512C7A247800ED8EF5 /* MyClosure.swift in Sources */,
+				E3B4AA542C8606DA004DBA7A /* MyOptionalBinding.swift in Sources */,
 				E38D4E7D2C78DBBA00EB4847 /* Variable4.swift in Sources */,
 				E38D4E772C78DB4900EB4847 /* Variabl.swift in Sources */,
 				E38D4E8B2C78DCE500EB4847 /* MyOptional.swift in Sources */,
@@ -304,10 +345,13 @@
 				E38D4E872C78DC6700EB4847 /* MyEnum2.swift in Sources */,
 				E38D4E852C78DC5500EB4847 /* MyEnum.swift in Sources */,
 				E38D4E4E2C78DB1D00EB4847 /* ContentView.swift in Sources */,
+				E3B4AA5C2C861280004DBA7A /* MyMethod.swift in Sources */,
 				E38D4E892C78DCB900EB4847 /* practice01.swift in Sources */,
 				E38D4E792C78DB5F00EB4847 /* Variable2.swift in Sources */,
 				E38D4E7B2C78DB8200EB4847 /* Variable3.swift in Sources */,
 				E38D4E4C2C78DB1D00EB4847 /* Swift_grammarApp.swift in Sources */,
+				E3B4AA582C860D6E004DBA7A /* MyOptionalChaining.swift in Sources */,
+				E3B4AA5A2C860F15004DBA7A /* MyProperty.swift in Sources */,
 				E38D4E812C78DC1600EB4847 /* Loop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

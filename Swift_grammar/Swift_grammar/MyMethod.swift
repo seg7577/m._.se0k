@@ -42,10 +42,10 @@ struct MyMethod: View {
 struct MyMethod_Previews: PreviewProvider{
     static var previews: some View{
         MyMethod()
-        returnLeeo()  // -> 함수
-        returnLeeo2() // -> 함수
-        returnLeeo3() // -> 메서드
-        returnLeeo4() // -> 함수
+        //returnLeeo()  // -> 함수
+        //returnLeeo2() // -> 함수
+        //returnLeeo3() // -> 메서드
+        //returnLeeo4() // -> 함수
     }
     
     func returnLeeo4() -> String { //-> 구조체 내부에서의 경우 함수라고 볼 수 있음

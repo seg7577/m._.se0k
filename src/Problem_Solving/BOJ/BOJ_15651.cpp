@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int n, m;a
+int n, m;
 bool vis[7];
 int arry[7];
 bool duplication[7];

@@ -1,3 +1,4 @@
+//메인 액티비티 파일
 package com.example.androidlab
 
 import android.os.Bundle
